@@ -1,0 +1,131 @@
+.mainPage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  padding: 20px 0;
+  position: absolute;
+  top: 60px;
+  right: 0;
+  z-index: 100;
+}
+header {
+  width: 100%;
+  height: 60px;
+  background-color: #273746;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 500000;
+  display: flex;
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  align-items: center;
+}
+header h1 {
+  color: #ffffffc0;
+  font-size: 1.6rem;
+  padding-left: 2%;
+  letter-spacing: 2px;
+  font-family: "Dosis, sans-serif";
+  margin-bottom: 0;
+}
+header img {
+  width: 120px;
+  position: absolute;
+  top: -5px;
+  right: 5%;
+}
+.navigation {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #273746;
+  margin-top: 60px;
+  width: 20%;
+  height: 100%;
+  padding: 20px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100000000;
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+}
+.menu {
+  display: flex;
+  justify-content: flex-end !important;
+  align-items: center;
+}
+.menu-button {
+  display: none !important;
+  font-size: 1.5rem !important;
+  cursor: pointer;
+  width: 40px !important;
+  height: 40px !important;
+  outline: none !important;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  border-radius: 10px !important;
+  color: #273746 !important;
+  padding: 0 !important;
+  background-color: #fff !important;
+  position: fixed !important;
+  top: 10px;
+  left: 10px;
+  z-index: 100000000000000;
+}
+.navigation ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  padding-left: 20px;
+  align-items: flex-start;
+  gap: 25px;
+}
+.navigation ul li a {
+  text-decoration: none;
+  font-size: 1.2rem;
+  color: #fff;
+  font-weight: 500;
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+@media (min-width: 340px) and (max-width: 1180px) {
+  header img {
+    right: 10%;
+  }
+  .navigation {
+    width: max-content;
+    padding-right: 25px;
+  }
+  .menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 130px;
+    right: 2px;
+    width: 100%;
+    background-color: #fffcf3;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  .menu.open {
+    display: flex;
+  }
+  .menu-button {
+    display: block !important;
+    font-size: 1rem !important;
+  }
+  .mainPage {
+    width: 100%;
+  }
+  header h1 {
+    padding-left: 20%;
+    font-size: 18px;
+  }
+  header img {
+    right: 0;
+  }
+}

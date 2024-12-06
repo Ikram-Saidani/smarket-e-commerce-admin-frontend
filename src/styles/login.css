@@ -1,0 +1,174 @@
+.pageLogin {
+    background-image: url("../assets/images/bg-login-register.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: max-content;
+    min-height: 100vh;
+    margin: 0;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+  }
+  .login {
+    width: 80%;
+    height: 95%;
+    padding: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    background-color: #fffcf3;
+    box-shadow: 5px 8px 15px 15px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Dosis', sans-serif;
+    margin: 20px 0;
+  }
+  .login img {
+    width: 200px;
+  }
+  .login form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 10px;
+    margin: 20px 0;
+  }
+  .login form>div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+  .login form>div>div{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+  }
+  .genderAndAddress{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 30px;
+  }
+  
+  .gender{
+    flex: 1;
+  }
+  .login .genderForm{
+    width: 200px;
+    outline: none;
+  }
+  .login .address{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    width: 50%;
+    flex: 2;
+  }
+  .login .address label{
+    flex: 20%;
+  }
+  .login .address input{
+    flex: 80%;
+    justify-self: flex-start;
+  }
+  .login label {
+    grid-column: 1/2;
+    margin-bottom: 0;
+    min-width: max-content;
+    width: 130px;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
+  .login input {
+    grid-column: 2/3;
+    width: 300px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    font-size: 16px;
+    font-weight: 400;
+    height: 50px;
+  }
+  .login button {
+    width: 100%;
+    padding: 10px;
+    background-color: var(--secondary-color);
+    color: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    outline: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 150px;
+    margin: auto;
+    font-weight: 600;
+    letter-spacing: 2px;
+  }
+  
+  .login button:hover {
+    background-color: #02a6a333;
+    color: var(--secondary-color);
+  }
+  
+  .login h4 {
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.8);
+    letter-spacing: 2px;
+    text-align: center;
+  }
+  .login h4 .link{
+    color: var(--primary-color);
+    text-decoration: underline;
+    text-transform: uppercase;
+  }
+  
+  /************************************************************************************/
+  
+  @media (min-width: 750px) and (max-width: 1180px){
+    .login{
+      height:max-content;
+    }
+    .login form>div{
+      flex-direction: column;
+    }
+  }
+  
+  /**********************************************************************************************/
+  
+  @media (min-width: 340px) and (max-width: 750px){
+    .login{
+      justify-content: space-around;
+      padding: 50px 10px;
+      height: max-content;
+    }
+    .login form{
+      gap:50px;
+    }
+    .login form>div{
+      flex-direction: column;
+    }
+    .login form>div>div{
+      display: flex;
+      flex-direction: column;
+      gap : 10px;
+    }
+    .login .address{
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .login label{
+      width:100%;
+    }
+  }

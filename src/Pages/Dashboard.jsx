@@ -1,9 +1,217 @@
-import React from 'react'
+import React, { useEffect, useState } from "react";
+import "../styles/dashboard.css";
+import { FaUser } from "react-icons/fa";
+import { FaProductHunt } from "react-icons/fa";
+import { BiSolidDonateHeart } from "react-icons/bi";
+import { FaCartShopping } from "react-icons/fa6";
+import { Link } from "react-router-dom";
+import useFetchAllUsers from "../customHooks/user/useFetchAllUsers";
+import useFetchUsersWithUserRole from "../customHooks/user/useFetchUsersWithUserRole";
+import useFetchCoordinators from "../customHooks/user/useFetchCoordinators";
+import useFetchAmmbassadors from "../customHooks/user/useFetchAmmbassadors";
+import useFetchGroups from "../customHooks/user/useFetchGroups";
+import useFetchProducts from "../customHooks/product/useFetchProducts";
+import useFetchDonations from "../customHooks/donation/useFetchDonations";
+import useFetchOrders from "../customHooks/order/useFetchOrders";
+import appAxios from "../utils/axiosConfig";
+import Stack from "@mui/material/Stack";
+import { BarChart } from "@mui/x-charts/BarChart";
+import { PieChart } from "@mui/x-charts/PieChart";
 
 function Dashboard() {
+  const token = localStorage.getItem("adminToken");
+  const totalUsers = useFetchAllUsers();
+  const usersNumber = useFetchUsersWithUserRole();
+  const coordinators = useFetchCoordinators();
+  const ambassadors = useFetchAmmbassadors();
+  const groups = useFetchGroups();
+  const products = useFetchProducts();
+  const donations = useFetchDonations();
+  const orders = useFetchOrders();
+  const [totalSales, setTotalSales] = useState(0);
+  const [groupSales, setGroupSales] = useState([]);
+  const maxSales = Math.max(...groupSales.map((group) => group.totalSales));
+  const barChartProps = {
+    series: [
+      {
+        data: groupSales.map((group) => ({
+          value: group.totalSales,
+          label: group.groupId,
+          id: group.groupId,
+        })),
+        id: "sync",
+        highlightScope: { highlight: "item", fade: "global" },
+      },
+      
+    ],
+    xAxis: [
+      {
+        scaleType: "band",
+        data: groupSales.map((group) => group.groupId),
+        label: "Groups",
+      },
+    ],
+    yAxis: [
+      {
+        scaleType: "linear",
+        label: "Total Sales (in $)",
+        min: 0,
+        max: maxSales,
+      },
+    ],
+    height: 400,
+    slotProps: {
+      legend: {
+        hidden: true,
+      },
+    },
+  };
+  
+  const pieChartProps = {
+    series: [
+      {
+        id: "sync",
+        data: groupSales.map((group) => ({
+          value: group.totalSales,
+          label: group.groupName || group.groupId,
+          id: group.groupId,
+        })),
+        highlightScope: { highlight: "item", fade: "global" },
+      },
+    ],
+    height: 400,
+    slotProps: {
+      legend: {
+        hidden: true,
+      },
+    },
+  };
+  
+
+  useEffect(() => {
+    let total = 0;
+    orders.forEach((order) => {
+      total += order.paymentTotal;
+    });
+    setTotalSales(total);
+
+    if (groups.length) {
+      appAxios
+        .get(`api/group/totalsales`, {
+          headers: {
+            Authorization: token,
+          },
+        })
+        .then((res) => {
+          setGroupSales(res.data.data.totalSalesData);
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+    }
+  }, [orders, groups, token]);
+
+  const [highlightedItem, setHighLightedItem] = useState(null);
+
   return (
-    <div>Dashboard</div>
-  )
+    <div className="mainPage">
+      <div className="boxesCount">
+        <Link to={"/admin/users"}>
+          <div className="boxGeneral boxAllUsers">
+            <h2>All Users</h2>
+            <p>{totalUsers?.length}</p>
+            <span>
+              <FaUser />
+            </span>
+          </div>
+        </Link>
+        <Link to={"/admin/users/roleuser"}>
+          <div className="boxGeneral boxUsers">
+            <h2>Users</h2>
+            <p>{usersNumber?.length}</p>
+            <span>
+              <FaUser />
+            </span>
+          </div>
+        </Link>
+        <Link to={"/admin/users/rolecoordinator"}>
+          <div className="boxGeneral boxCoordinators">
+            <h2>Coordinators</h2>
+            <p>{coordinators?.length}</p>
+            <span>
+              <FaUser />
+            </span>
+          </div>
+        </Link>
+        <Link to={"/admin/users/roleambassador"}>
+          <div className="boxGeneral boxAmbassadors">
+            <h2>Ambassadors</h2>
+            <p>{ambassadors?.length}</p>
+            <span>
+              <FaUser />
+            </span>
+          </div>
+        </Link>
+        <Link to={"/admin/users/groups"}>
+          <div className="boxGeneral boxGroups">
+            <h2>Groups</h2>
+            <p>{groups?.length}</p>
+            <span>
+              <FaUser />
+            </span>
+          </div>
+        </Link>
+        <Link to={"/admin/products"}>
+          <div className="boxGeneral boxProducts">
+            <h2>Products</h2>
+            <p>{products?.length}</p>
+            <span>
+              <FaProductHunt />
+            </span>
+          </div>
+        </Link>
+        <Link to={"/admin/donation"}>
+          <div className="boxGeneral boxDonation">
+            <h2>Donation</h2>
+            <p>{donations?.length}</p>
+            <span>
+              <BiSolidDonateHeart />
+            </span>
+          </div>
+        </Link>
+        <Link to={"/admin/orders"}>
+          <div className="boxGeneral boxSales">
+            <h2>Total Sales</h2>
+            <p>$ {totalSales.toFixed(2)}</p>
+            <span>
+              <FaCartShopping />
+            </span>
+          </div>
+        </Link>
+      </div>
+      <div className="diagram">
+        <h2>Sales For Each Group</h2>
+        <Stack
+          className="chart"
+          direction={{ xs: "column", xl: "row" }}
+          spacing={1}
+          sx={{ width: "100%" }}
+        >
+          <BarChart
+            {...barChartProps}
+            highlightedItem={highlightedItem}
+            onHighlightChange={setHighLightedItem}
+          />
+          <PieChart
+            className="pieChart"
+            {...pieChartProps}
+            highlightedItem={highlightedItem}
+            onHighlightChange={setHighLightedItem}
+          />
+        </Stack>
+      </div>
+    </div>
+  );
 }
 
-export default Dashboard
+export default Dashboard;

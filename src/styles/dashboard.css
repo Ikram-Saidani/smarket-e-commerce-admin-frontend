@@ -1,0 +1,82 @@
+.boxesCount {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin: 0 auto;
+  justify-content: center;
+}
+.boxesCount a {
+  text-decoration: none;
+}
+.boxesCount .boxGeneral {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 250px;
+  height: 150px;
+  color: #fff;
+  position: relative;
+  cursor: pointer;
+}
+.boxesCount .boxGeneral:hover {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.boxesCount .boxGeneral h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+.boxesCount .boxGeneral p {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+.boxesCount .boxGeneral span {
+  position: absolute;
+  bottom: 10px;
+  font-size: 1.8rem;
+  font-weight: 500;
+  right: 10px;
+}
+.boxesCount .boxAmbassadors,
+.boxesCount .boxProducts {
+  background: linear-gradient(#24d414a8, #c1eb72d8);
+}
+.boxesCount .boxUsers,
+.boxesCount .boxDonation {
+  background: linear-gradient(#ff5100b0, #f1d248b0);
+}
+.boxesCount .boxCoordinators,
+.boxesCount .boxGroups {
+  background: linear-gradient(#006effab, #7ef0f8ab);
+}
+.boxesCount .boxAllUsers,
+.boxesCount .boxSales {
+  background: linear-gradient(#720680af, #d67da2af);
+}
+.diagram {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+.diagram h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #273746;
+}
+
+/************************************************************************************************/
+
+@media (min-width: 340px) and (max-width: 1180px) {
+  .boxesCount .boxGeneral {
+    width: 180px;
+    }
+}
