@@ -17,7 +17,7 @@ function App() {
     <BrowserRouter>
       <Header />
       <Navigation />
-      <ToastContainer />
+      <ToastContainer position="bottom-right" />
       <Routes>
         <Route path="/admin/login" element={<Login />} />
         <Route path="/admin" element={<Dashboard />} />

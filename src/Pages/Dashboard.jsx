@@ -34,7 +34,7 @@ function Dashboard() {
   const barChartProps = {
     series: [
       {
-        data: groupSales.map((group) => ({
+        data: groupSales?.map((group) => ({
           value: group.totalSales,
           label: group.groupId,
           id: group.groupId,
@@ -90,12 +90,12 @@ function Dashboard() {
 
   useEffect(() => {
     let total = 0;
-    orders.forEach((order) => {
+    orders?.forEach((order) => {
       total += order.paymentTotal;
     });
     setTotalSales(total);
 
-    if (groups.length) {
+    if (groups?.length) {
       appAxios
         .get(`api/group/totalsales`, {
           headers: {
