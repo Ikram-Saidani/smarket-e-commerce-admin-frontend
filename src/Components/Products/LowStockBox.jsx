@@ -28,7 +28,7 @@ function LowStockBox({ item, products, setProducts }) {
         <img src={item.image} alt="product_image" />
         <div>
           <h3>
-            {item.title.length > 20
+            {item.title?.length > 20
               ? item.title.slice(0, 20) + "..."
               : item.title}
           </h3>

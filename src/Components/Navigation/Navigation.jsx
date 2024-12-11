@@ -25,13 +25,15 @@ function Navigation() {
   const isLogin = location.pathname === "/admin/login";
   return (
     <>
-      <Button
-        className="menu-button"
-        onClick={toggleMenu}
-        aria-label="Toggle menu"
-      >
-        ☰
-      </Button>
+      {!isLogin && (
+        <Button
+          className="menu-button"
+          onClick={toggleMenu}
+          aria-label="Toggle menu"
+        >
+          ☰
+        </Button>
+      )}
       <div className={`menu ${isMenuOpen ? "open" : ""}`}>
         {!isLogin && (
           <div className="navigation">

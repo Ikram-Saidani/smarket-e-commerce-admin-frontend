@@ -1,0 +1,302 @@
+.usersBar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin: 10px 0;
+  align-items: center;
+}
+.usersBar button {
+  background-color: var(--tertiary-color);
+  color: #273746;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+}
+.usersBar button:hover {
+  background-color: #c7d48c85;
+}
+.usersBoxes,
+.roleRequest {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 15px;
+}
+.allusers h3 {
+  font-size: 20px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  place-self: start;
+  margin-left: 10px;
+}
+.usersBoxes p {
+  font-size: 16px;
+  font-weight: 500;
+  text-align: center;
+  letter-spacing: 1px;
+}
+.userBox {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  width: 400px;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 10px;
+}
+.userBox a {
+  text-decoration: none;
+}
+.userBox .info {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-left: 5px;
+  flex: 6;
+  width: 100%;
+}
+.userBox .info img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+.userBox .info > div {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 5px;
+}
+.userBox .info > div h3 {
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0;
+}
+.info > div p {
+  font-size: 16px;
+  font-weight: 500;
+  text-align: center;
+  letter-spacing: 1px;
+  margin-bottom: 0;
+}
+.buttonForUserBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.updateRole{
+  width: 130px;
+  background-color: #273746;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+}
+.updateRole label,
+.updateRole .selectRole
+{
+  color: #fff !important;
+}
+.userPageTitle {
+  font-size: 20px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  place-self: start;
+  margin-left: 10px;
+}
+.noOrder,
+.birthMonth,
+.ambassadorEligibility,
+.coordinatorEligibility,
+.affordable {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 10px 0;
+}
+.noOrder .discountNotificationButton,
+.birthMonth .discountNotificationButton,
+.ambassadorEligibility .discountNotificationButton,
+.coordinatorEligibility .discountNotificationButton,
+.affordable .discountNotificationButton {
+  background-color: var(--primary-color);
+  color: #fff;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+}
+.noOrder .discountNotificationButton:hover,
+.birthMonth .discountNotificationButton:hover,
+.ambassadorEligibility .discountNotificationButton:hover,
+.coordinatorEligibility .discountNotificationButton:hover,
+.affordable .discountNotificationButton:hover {
+  background-color: #b3a18d;
+}
+.groups {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  width: 95%;
+  margin: 10px 0;
+  align-items: center;
+}
+.groups .groupBox {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  width: 90%;
+  gap: 10px;
+  height: 300px;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px;
+}
+.groups .groupBox .info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  gap: 20px;
+}
+.groups .groupBox .info p {
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: capitalize;
+}
+.groupBoxInside {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+  padding-left: 5px;
+}
+.detail{
+  display:flex;
+  gap:10px;
+  justify-content: center;
+  align-items: center;
+}
+.relplaceCoordinator {
+  width: 110px;
+  background-color: var(--primary-color);
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+}
+.relplaceCoordinator:hover,.detail button:hover {
+  background-color: #b3a18d;
+}
+.relplaceCoordinator label,
+.relplaceCoordinator .selectCoordinator,.addMember label,.addMember .selectMember{
+  color: #fff !important;
+}
+.addMember{
+  width: 140px;
+  background-color: #273746;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+}
+.detail button {
+  width: 110px;
+  background-color: var(--primary-color);
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff;
+}
+.createGroupPage{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin: 10px 0;
+}
+.createGroupPage .selectedMembers{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+.createGroupPage .selectedMembers h3{
+  font-size: 20px;
+  font-weight: 600;
+  text-transform: capitalize;
+  letter-spacing: 1px;
+  place-self: start;
+  margin-left: 10px;
+}
+.createGroupPage .addCoordinator{
+  width: 200px;
+  background-color: #273746;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+}
+.createGroupPage .addCoordinator label{
+  color: #fff !important;
+}
+.createGroupPage h4{
+  font-family: "Dosis", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  text-transform: capitalize;
+  letter-spacing: 1px;
+
+}
+.createGroupPage .addToGroupButton{
+  width: 200px;
+  background-color: var(--primary-color);
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+}
+.createGroupPage .addToGroupButton:hover{
+  background-color: #b3a18d;
+}

@@ -32,11 +32,16 @@ function AllProducts() {
       <div className="categoryBar">
         <CategoryBar setCategory={setCategory} />
       </div>
-        <h3>{category}</h3>
+      <h3>{category}</h3>
       <div className="productsBoxes">
         {products.length > 0 ? (
           products.map((product) => (
-            <ProductBox item={product} key={product._id} products={products} setProducts={setProducts}/>
+            <ProductBox
+              item={product}
+              key={product._id}
+              products={products}
+              setProducts={setProducts}
+            />
           ))
         ) : (
           <p>No products available at the moment.</p>

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import appAxios from '../../utils/axiosConfig';
 
-function useFetchAmmbassadors() {
+function useFetchAmbassadors() {
     const token=localStorage.getItem('adminToken')
     const [ambassadors,setAmbassadors]=useState([])
     useEffect(()=>{
@@ -23,4 +23,4 @@ function useFetchAmmbassadors() {
   )
 }
 
-export default useFetchAmmbassadors
+export default useFetchAmbassadors
