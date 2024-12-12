@@ -84,6 +84,7 @@
   text-transform: uppercase;
   letter-spacing: 1px;
   margin-bottom: 0;
+  text-transform: capitalize;
 }
 .info > div p {
   font-size: 16px;
@@ -91,6 +92,7 @@
   text-align: center;
   letter-spacing: 1px;
   margin-bottom: 0;
+  text-transform: capitalize;
 }
 .buttonForUserBox {
   display: flex;
@@ -120,6 +122,8 @@
   letter-spacing: 1px;
   place-self: start;
   margin-left: 10px;
+  margin-top: 15px;
+
 }
 .noOrder,
 .birthMonth,

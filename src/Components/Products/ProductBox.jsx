@@ -8,6 +8,7 @@ import UpdateProduct from "./UpdateProduct";
 function ProductBox({ item, products, setProducts }) {
   const token = localStorage.getItem("adminToken");
   const handleDeleteProduct = async () => {
+   if(window.confirm("Are you sure you want to delete this product?")) {
     appAxios
       .delete(`/api/product/delete/${item._id}`, {
         headers: { Authorization: token },
@@ -22,6 +23,9 @@ function ProductBox({ item, products, setProducts }) {
       .catch((err) => {
         console.log(err);
       });
+    }else{
+      toast.info("Product not deleted.");
+    }
   };
   return (
     <div className="productBox">
@@ -39,7 +43,10 @@ function ProductBox({ item, products, setProducts }) {
       </div>
       <div className="buttons">
         <ProductComments item={item} />
-        <UpdateProduct item={item}/>
+        <UpdateProduct item={item}
+          products={products}
+          setProducts={setProducts}
+        />
         <Button onClick={handleDeleteProduct}>Delete</Button>
       </div>
     </div>

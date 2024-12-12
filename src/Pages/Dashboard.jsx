@@ -208,7 +208,7 @@ function Dashboard() {
         </Link>
       </div>
       <div className="diagram">
-        <h3>Sales For Each Group</h3>
+        <h3>Top 5 Group Sales</h3>
         <Stack
           className="chart"
           direction={{ xs: "column", xl: "row" }}

@@ -1,0 +1,12 @@
+.mainHelpPage form{
+   width: 90%;
+    margin: 0 auto;
+}
+.mainHelpPage form .buttons{
+   display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.formAddHelpProd{
+    width: 100%;
+}

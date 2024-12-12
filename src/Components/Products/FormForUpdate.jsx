@@ -3,7 +3,7 @@ import { toast } from "react-toastify";
 import appAxios from "../../utils/axiosConfig";
 import { Button, TextField } from "@mui/material";
 
-function FormForUpdate({ itemId }) {
+function FormForUpdate({ itemId ,products, setProducts}) {
   const token = localStorage.getItem("adminToken");
   const [formData, setFormData] = useState({});
 
@@ -60,6 +60,13 @@ function FormForUpdate({ itemId }) {
         headers: { Authorization: token },
       })
       .then(() => {
+        const updatedProducts = products.map((product) => {
+          if (product._id === itemId) {
+            return formData;
+          }
+          return product;
+        });
+        setProducts(updatedProducts);
         toast.success("Product updated successfully!");
       })
       .catch((err) => {

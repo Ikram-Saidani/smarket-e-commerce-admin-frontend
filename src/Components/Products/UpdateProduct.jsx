@@ -11,7 +11,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-function UpdateProduct({ item }) {
+function UpdateProduct({ item, products, setProducts }) {
   const [isOpenModal, setIsOpenModal] = useState(false);
   const itemId = item?._id;
   useEffect(() => {
@@ -23,7 +23,6 @@ function UpdateProduct({ item }) {
     appAxios
       .get(`/api/comment/getcomments/${itemId}`)
       .then((res) => {
-       
       })
       .catch((err) => {
         console.error("Error fetching comments for this product", err);
@@ -43,7 +42,10 @@ function UpdateProduct({ item }) {
         <Button className="close" onClick={() => setIsOpenModal(false)}>
           <MdClose />
         </Button>
-        <FormForUpdate itemId={item._id}/>
+        <FormForUpdate
+          products={products}
+          setProducts={setProducts}
+         itemId={item._id}/>
       </Dialog>
     </>
   )

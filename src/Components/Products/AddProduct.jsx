@@ -2,12 +2,12 @@ import React, {  useState } from "react";
 import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 import AddForm from "./AddForm";
 
-function AddProduct() {
+function AddProduct({products, setProducts }) {
   const [selectedCategory, setSelectedCategory] = useState("");
   const category = [
     "fashion",
     "bags",
-    "footwear",
+    "footwear", 
     "jewellery",
     "beauty",
     "electronics",
@@ -34,6 +34,8 @@ function AddProduct() {
       </FormControl>
 
       {selectedCategory&&(<AddForm
+        setProducts={setProducts}
+        products={products}
         selectedCategory={selectedCategory}
       />)}
     </div>

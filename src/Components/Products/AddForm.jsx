@@ -4,7 +4,7 @@ import appAxios from "../../utils/axiosConfig";
 import { Button, TextField } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
-function AddForm({ selectedCategory }) {
+function AddForm({ selectedCategory,products, setProducts }) {
   const token = localStorage.getItem("adminToken");
   const [selectedImage, setSelectedImage] = useState(null);
   const [productData, setProductData] = useState({
@@ -103,6 +103,7 @@ function AddForm({ selectedCategory }) {
 
       if (response.data.status === "success") {
         toast.success("Product added successfully");
+        setProducts([...products, response.data.data]);
       }
     } catch (err) {
       toast.error(err.response?.data?.error || "Something went wrong!");
