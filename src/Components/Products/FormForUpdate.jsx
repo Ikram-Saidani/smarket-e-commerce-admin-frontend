@@ -100,7 +100,7 @@ function FormForUpdate({ itemId ,products, setProducts}) {
         <TextField
           label="Price"
           name="price"
-          value={formData.price || ""}
+          value={formData.price?.toFixed(2) || ""}
           onChange={handleChange}
           type="number"
           fullWidth
