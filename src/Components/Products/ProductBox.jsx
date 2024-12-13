@@ -37,7 +37,7 @@ function ProductBox({ item, products, setProducts }) {
               ? item.title.slice(0, 20) + "..."
               : item.title}
           </h3>
-          <p>Price: {item.price.toFixed(2)} $</p>
+          <p>Price: {item.price.toFixed(2)} TND</p>
           <p>Count in Stock: {item.countInStock}</p>
         </div>
       </div>

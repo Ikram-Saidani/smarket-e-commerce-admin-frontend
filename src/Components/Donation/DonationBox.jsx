@@ -44,7 +44,7 @@ function DonationBox({ donation, donations, setDonations }) {
       </div>
     </div>
     <div className="buttonForUserBox">
-      <Button onClick={() => handleUpdateDonationStatus()}>Completed ?</Button>
+      <Button onClick={() => handleUpdateDonationStatus()}>Completed</Button>
     </div>
   </div>
   )

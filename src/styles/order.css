@@ -36,3 +36,16 @@
     gap: 20px;
     margin-top: 20px;
 }
+.orderButtonDetail{
+    width: 120px;
+    height: 40px;
+    background-color: #273746!important;
+    color: #fff!important;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+}
+.orderButtonDetail:hover{
+    background-color: #27374683!important;
+}

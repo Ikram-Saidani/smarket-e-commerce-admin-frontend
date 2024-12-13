@@ -146,7 +146,7 @@ function AddForm({ selectedCategory,products, setProducts }) {
         margin="normal"
       />
       <TextField
-        label="Old Price $"
+        label="Old Price TND"
         name="oldPrice"
         value={productData.oldPrice}
         onChange={handleChange}

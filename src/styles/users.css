@@ -175,7 +175,7 @@
   border-radius: 5px;
   width: 90%;
   gap: 10px;
-  height: 300px;
+  height: max-content;
   justify-content: space-around;
   align-items: center;
   padding: 10px;

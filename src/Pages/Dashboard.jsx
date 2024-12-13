@@ -200,7 +200,7 @@ function Dashboard() {
         <Link to={"/admin/orders"}>
           <div className="boxGeneral boxSales">
             <h2>Total Sales</h2>
-            <p>$ {totalSales.toFixed(2)}</p>
+            <p>{totalSales.toFixed(2)} TND</p>
             <span>
               <FaCartShopping />
             </span>

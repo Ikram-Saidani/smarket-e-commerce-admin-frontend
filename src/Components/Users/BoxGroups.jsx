@@ -87,7 +87,7 @@ function BoxGroups({ group, groups, setGroups, groupSales }) {
           ))}
           <p>
             <strong>Total Sales : </strong>
-            {totalSales.toFixed(2)} $
+            {totalSales.toFixed(2)} TND
           </p>
         </div>
       </div>
