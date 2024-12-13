@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import OrderNavbar from '../Components/Orders/OrderNavbar';
 import PendingOrders from '../Components/Orders/PendingOrders';
 import TotalSales from '../Components/Orders/TotalSales';
-
+import "../styles/order.css";
 function Orders() {
   const token = localStorage.getItem("adminToken");
   const navigate = useNavigate();

@@ -2,12 +2,14 @@ import { Button } from "@mui/material";
 import React, { useState } from "react";
 import appAxios from "../../utils/axiosConfig";
 import { toast } from "react-toastify";
+import OrderDetails from "./OrderDetails";
 
 function OrderBox({ order, orders, setOrders }) {
   const token = localStorage.getItem("adminToken");
   const [selectedStatus, setSelectedStatus] = useState("");
 
-  const handleUpdateStatus = () => {
+  const handleUpdateStatus = (e) => {
+    e.preventDefault();
     if (window.confirm(`Are you sure that this order is ${selectedStatus}?`)) {
       appAxios
         .put(
@@ -18,7 +20,7 @@ function OrderBox({ order, orders, setOrders }) {
           }
         )
         .then((res) => {
-          toast.info(`This order is ${selectedStatus}`);
+          toast.success(`This order is ${selectedStatus}`);
           const newOrders = orders.filter((ord) => ord._id !== order._id);
           setOrders(newOrders);
         })
@@ -30,16 +32,19 @@ function OrderBox({ order, orders, setOrders }) {
   };
   return (
     <div className="userBox">
-      <div className="info">
+      <div className="info orderInfo">
         <div>
           <p>
-            <strong>User Name : </strong>{order.userId?.name}
+            <strong>User Name : </strong>
+            {order.userId?.name}
           </p>
           <p>
-            <strong>User Phone : </strong>{order.userId?.phone}
+            <strong>User Phone : </strong>
+            {order.userId?.phone}
           </p>
           <p>
-            <strong>User Address : </strong>{order.address}
+            <strong>User Address : </strong>
+            {order.address}
           </p>
           <p>
             <strong>Total : </strong>
@@ -50,32 +55,37 @@ function OrderBox({ order, orders, setOrders }) {
             {order.paymentMode}
           </p>
           <p>
-            <strong>Date of order : {new Date(order.createdAt).toLocaleDateString()}</strong>
+            <strong>Date of order : </strong>
+            {new Date(order.createdAt).toLocaleDateString()}
           </p>
-          <p>
-          </p>
-         
+          <p></p>
         </div>
       </div>
-      <div className="buttonForUserBox">
+      <form
+        onSubmit={(e) => handleUpdateStatus(e)}
+        className="buttonForOrderBox"
+      >
+        <OrderDetails order={order} />
         <Button
+          type="submit"
+          className="done"
           onClick={() => {
             setSelectedStatus("done");
-            handleUpdateStatus();
           }}
         >
-          Done?
+          Done
         </Button>
 
         <Button
+          type="submit"
+          className="cancel"
           onClick={() => {
-            setSelectedStatus("Cancelled");
-            handleUpdateStatus();
+            setSelectedStatus("cancelled");
           }}
         >
-          Cancelled?
+          Cancel
         </Button>
-      </div>
+      </form>
     </div>
   );
 }
